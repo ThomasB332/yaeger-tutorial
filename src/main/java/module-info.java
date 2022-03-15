@@ -1,5 +1,6 @@
 module waterworld {
-    requires hanyaeger;
+	requires javafx.graphics;
+	requires hanyaeger;
 
     exports com.github.hanyaeger.tutorial;
 
