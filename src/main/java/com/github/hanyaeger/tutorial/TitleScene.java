@@ -10,11 +10,18 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class TitleScene extends StaticScene {
+	private Waterworld waterworld;
+
+	public TitleScene(Waterworld waterworld) {
+		this.waterworld = waterworld;
+	}
 
 	@Override
 	public void setupScene() {
 		setBackgroundAudio("audio/ocean.mp3");
-		setBackgroundImage("backgrounds/background1.jpg");
+		setBackgroundColor(Color.DARKBLUE);
+		setBackgroundImage("backgrounds/fireball-flame-ball.gif");
+		
 	}
 
 	@Override
@@ -23,6 +30,10 @@ public class TitleScene extends StaticScene {
 		waterworldText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 		waterworldText.setFill(Color.DARKBLUE);
 		waterworldText.setFont(Font.font("Roboto", FontWeight.BOLD, 80));
+		var startButton = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 8), waterworld);
+		startButton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+
+		addEntity(startButton);
 		addEntity(waterworldText);
 	}
 
